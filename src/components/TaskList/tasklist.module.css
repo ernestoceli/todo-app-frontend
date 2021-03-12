@@ -1,0 +1,25 @@
+.taskListContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.taskListHeader {
+  list-style-type: none;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.taskListHeader > li {
+  display: inline;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.taskListHeader > .floatLeft {
+  float: left;
+  font-size: 20px;
+}
+
+.taskListHeader > .floatRight {
+  float: right;
+}

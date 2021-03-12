@@ -1,0 +1,36 @@
+.buttons {
+  width: 100%;
+  height: 6%;
+  background: rgb(158, 158, 158);
+  /* display: flex;
+  align-items: center; */
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.buttons > li {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  margin: auto;
+  padding: 0 1.5em;
+  cursor: pointer;
+}
+
+.buttons > li:hover {
+  background: rgb(66, 66, 66);
+}
+
+.buttons > .user {
+  float: right;
+}
+
+.buttons > .searchBar {
+  float: right;
+}
+
+.buttons > .menuButton {
+  float: right;
+}

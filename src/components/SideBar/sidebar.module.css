@@ -1,0 +1,16 @@
+.sideBarBody {
+  background: rgb(63, 63, 63);
+  width: 25%;
+  height: 94%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.collections {
+  list-style-type: none;
+}
+
+.collections > li {
+  cursor: pointer;
+}

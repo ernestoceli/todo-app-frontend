@@ -1,0 +1,16 @@
+.main {
+  width: 70vw;
+  min-width: 500px;
+  height: 80vh;
+  min-height: 400px;
+  background: black;
+  margin: 50px auto;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.main > .row {
+  display: flex;
+  height: 100%;
+}
