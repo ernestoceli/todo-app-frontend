@@ -1,8 +1,9 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import styles from './task.module.css';
 
 // eslint-disable-next-line
-const Task = ({ taskInfo, taskClicked }) => (
+const Task = ({ taskInfo, taskClicked, deleteTask }) => (
   <button
     type="button"
     // eslint-disable-next-line
@@ -12,6 +13,11 @@ const Task = ({ taskInfo, taskClicked }) => (
   >
     {/* eslint-disable-next-line */}
     {taskInfo.description}
+    {taskInfo.completed && (
+      <span className={styles.deleteButton} onClick={() => deleteTask(taskInfo._id)}>
+        <FontAwesomeIcon icon="trash" />
+      </span>
+    )}
   </button>
 );
 

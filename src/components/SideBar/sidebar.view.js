@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './sidebar.module.css';
 
-const SideBar = () => {
+const SideBar = ({ buttonClicked, triggerRefresh }) => {
   const [collections, setCollections] = useState([]);
 
   useEffect(() => {
@@ -14,14 +15,33 @@ const SideBar = () => {
     }
   }, []);
 
+  useEffect(() => {
+    if (collections) {
+      fetch('http://localhost:3001/collection')
+        .then((res) => res.json())
+        .then((data) => {
+          setCollections(data);
+        });
+    }
+  }, [triggerRefresh]);
+
   return (
     <div className={styles.sideBarBody}>
-      <h3>Collections</h3>
-      <ul className={styles.collections}>
+      <h3 className={styles.sideBarTitle}>Collections</h3>
+      <div className={styles.collections}>
         {collections.map((collection) => (
-          <li key={collection.id}>{collection.name}</li>
+          <div className={styles.collectionItem} key={collection.id}>
+            <div className={styles.iconContainer} style={{ background: collection.color }}>
+              <FontAwesomeIcon icon={collection.icon} />
+            </div>
+            {collection.name}
+          </div>
         ))}
-      </ul>
+      </div>
+      <button type="button" className={styles.addNew} onClick={buttonClicked}>
+        <div className={styles.iconContainerAdd}>+</div>
+        Add collection
+      </button>
     </div>
   );
 };

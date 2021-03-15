@@ -1,16 +1,33 @@
 .taskPending {
-  background: rgb(160, 160, 160);
+  border: 0;
+  background: #828282;
   cursor: pointer;
   margin: 5px 0px;
   outline: none;
-  color: white;
+  color: #e0e0e0;
+  height: 3em;
+  border-radius: 0.5em;
+  padding-right: 1em;
 }
 
 .taskCompleted {
-  background: rgb(65, 65, 65);
+  border: 0;
+  background: rgba(130, 130, 130, 0.55);
   cursor: pointer;
   margin: 5px 0px;
   outline: none;
-  color: rgb(218, 218, 218);
+  color: #e0e0e0;
   text-decoration-line: line-through;
+  height: 3em;
+  border-radius: 0.5em;
+  padding-right: 1em;
+}
+
+.deleteButton {
+  float: right;
+  z-index: 10;
+}
+
+.deleteButton:hover {
+  background: #e0e0e0;
 }
