@@ -6,8 +6,10 @@
   outline: none;
   color: #e0e0e0;
   height: 3em;
-  border-radius: 0.5em;
+  border-radius: 0.8em;
   padding-right: 1em;
+  width: 62vw;
+  font-size: 18px;
 }
 
 .taskCompleted {
@@ -19,8 +21,10 @@
   color: #e0e0e0;
   text-decoration-line: line-through;
   height: 3em;
-  border-radius: 0.5em;
+  border-radius: 0.8em;
   padding-right: 1em;
+  width: 62vw;
+  font-size: 18px;
 }
 
 .deleteButton {

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './modal.module.css';
 
 // eslint-disable-next-line
-const Modal = ({ open, handleCloseModal, modalType }) => {
+const Modal = ({ open, handleCloseModal, modalType, collectionId }) => {
   const [descriptionInput, setDescriptionInput] = useState();
   const [iconInput, setIconInput] = useState('coffee');
   const [colorInput, setColorInput] = useState('#000000');
@@ -15,6 +15,7 @@ const Modal = ({ open, handleCloseModal, modalType }) => {
       bodyContent = {
         description: descriptionInput,
         completed: false,
+        parentCollection: collectionId,
       };
     } else if (modalType === 'collection') {
       bodyContent = {
@@ -39,7 +40,7 @@ const Modal = ({ open, handleCloseModal, modalType }) => {
 
   if (open) {
     return modalType === 'profile' ? (
-      <div className={styles.overlay} onClick={handleCloseModal}>
+      <div className={styles.overlay}>
         <div className={styles.modalBody}>
           <p className={styles.p}>Profile Modal</p>
           <button type="button" onClick={handleCloseModal}>
@@ -48,7 +49,7 @@ const Modal = ({ open, handleCloseModal, modalType }) => {
         </div>
       </div>
     ) : (
-      <div className={styles.overlay} onClick={handleCloseModal}>
+      <div className={styles.overlay}>
         <div className={styles.modalBody}>
           <p className={styles.modalTitle}>{`+ Add new ${modalType}`}</p>
           <p className={styles.inputLabel}>{`${modalType} description`}</p>
@@ -57,10 +58,11 @@ const Modal = ({ open, handleCloseModal, modalType }) => {
             type="text"
             placeholder={`Write new ${modalType}`}
             onChange={(e) => setDescriptionInput(e.target.value)}
+            autoFocus //eslint-disable-line
           />
           {modalType === 'collection' && (
-            <>
-              <p className={styles.p}>Select Icon</p>
+            <div className={styles.iconColorDiv}>
+              <p className={styles.inputLabel}>Select Icon</p>
               <select name="icons" onChange={(e) => setIconInput(e.target.value)}>
                 <option value="coffee">Coffee</option>
                 <option value="car">Car</option>
@@ -70,15 +72,20 @@ const Modal = ({ open, handleCloseModal, modalType }) => {
                 <option value="camera">Camera</option>
                 <option value="dog">Dog</option>
               </select>
-              <p className={styles.p}>Select Color</p>
+              <p className={styles.inputLabel}>Select Color</p>
               <input type="color" onChange={(e) => setColorInput(e.target.value)} />
-            </>
+            </div>
           )}
           <div className={styles.buttonsRow}>
-            <button type="button" onClick={handleCloseModal}>
+            <button
+              className={`${styles.button} ${styles.cancel}`}
+              type="button"
+              onClick={handleCloseModal}
+            >
               Cancel
             </button>
             <button
+              className={`${styles.button} ${styles.create}`}
               type="button"
               onClick={() => {
                 create();

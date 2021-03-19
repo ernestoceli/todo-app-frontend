@@ -1,15 +1,14 @@
-.buttons {
+.navBarBody {
   width: 100%;
-  height: 6%;
+  height: 7vh;
   background: #333333;
-  /* display: flex;
-  align-items: center; */
-  list-style-type: none;
+  display: flex;
+  align-items: center;
   margin: 0;
   padding: 0;
 }
 
-.buttons > li {
+.navBarBody > li {
   float: left;
   display: block;
   color: white;
@@ -19,18 +18,90 @@
   cursor: pointer;
 }
 
-.buttons > li:hover {
-  background: rgb(66, 66, 66);
+.searchBar {
+  border: 0;
+  margin-left: auto;
+  height: 4vh;
+  width: 10vw;
+  border-radius: 2vh;
+  outline: none;
 }
 
-.buttons > .user {
-  float: right;
+.navigationButton {
+  display: inline-block;
+  color: rgb(231, 231, 231);
+  text-decoration: none;
+  padding: 0;
+  height: 7vh;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 7vh;
+  font-size: 1.5vw;
+  width: 12.5%;
 }
 
-.buttons > .searchBar {
-  float: right;
+.navigationButton:hover {
+  background: #828282;
 }
 
-.buttons > .menuButton {
-  float: right;
+.menuButton {
+  background: 0;
+  border: 0;
+  color: rgb(231, 231, 231);
+  font-size: 25px;
+  outline: none;
+  /* padding-right: 1em;
+  padding-left: 1em; */
+  height: 7vh;
+  margin-left: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5em;
+  width: 15vw;
+}
+
+.menuButton:hover {
+  background-color: #444444;
+}
+
+.menuButton:focus {
+  background-color: #444444;
+}
+
+.dropDownMenu {
+  display: flex;
+  flex-direction: column;
+  background: #444444;
+  width: 15vw;
+  color: rgb(231, 231, 231);
+  text-decoration: none;
+}
+
+.dropDownItem {
+  color: rgb(231, 231, 231);
+  text-decoration: none;
+  height: 5vh;
+  padding-left: 0.5em;
+  vertical-align: middle;
+  line-height: 5vh;
+}
+
+.dropDownItem:hover {
+  background: #333333;
+}
+
+.ellipsis {
+  margin-left: 0.5em;
+}
+
+.userIcon {
+  width: 5vh;
+  height: 5vh;
+  border-radius: 50%;
+  background: rgb(231, 231, 231);
+  color: #333333;
+  margin: 0;
+  vertical-align: middle;
+  line-height: 5vh;
 }
