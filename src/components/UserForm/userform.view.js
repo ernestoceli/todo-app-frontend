@@ -47,7 +47,7 @@ const UserForm = () => {
       <p>Name</p>
       <input type="text" onChange={(e) => handleName(e.target.value)} />
       <p />
-      <button type="button" onClick={createUser}>
+      <button type="button" onClick={createUser} className={styles.button}>
         Create User
       </button>
     </form>

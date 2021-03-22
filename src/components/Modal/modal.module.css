@@ -30,6 +30,18 @@
   margin-left: 1em;
 }
 
+.profileTitle {
+  color: #e0e0e0;
+  font-size: 30px;
+}
+
+.profileDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 2em;
+}
+
 .inputLabel {
   margin-bottom: 0.2em;
   margin-left: 10%;
@@ -89,4 +101,18 @@
   margin-top: 1.5em;
   display: flex;
   align-items: center;
+}
+
+.userIcon {
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  background: rgb(231, 231, 231);
+  color: #333333;
+  margin-top: 1em;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 1.5em;
+  font-size: 50px;
+  font-weight: 400;
 }

@@ -3,7 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './sidebar.module.css';
 
 // eslint-disable-next-line
-const SideBar = ({ buttonClicked, selectedCollection, collections, onClickCollection }) => (
+const SideBar = ({
+  buttonClicked,
+  selectedCollection,
+  collections,
+  onClickCollection,
+  deleteClicked,
+}) => (
   <div className={styles.sideBarBody}>
     <h3 className={styles.sideBarTitle}>Collections</h3>
     <div className={styles.collections}>
@@ -22,6 +28,9 @@ const SideBar = ({ buttonClicked, selectedCollection, collections, onClickCollec
               <FontAwesomeIcon icon={collection.icon} />
             </div>
             {collection.name}
+            <div className={styles.collectionDelete} onClick={() => deleteClicked(collection._id)}>
+              <FontAwesomeIcon icon="trash" />
+            </div>
           </div>
         ))
       ) : (

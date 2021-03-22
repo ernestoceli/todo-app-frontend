@@ -21,10 +21,6 @@
   font-size: 20px;
 }
 
-/* .collectionItem:hover {
-  background: rgba(196, 196, 196, 0.2);
-} */
-
 .itemSelected {
   background: #4f4f4f;
 }
@@ -81,4 +77,13 @@ button {
   font-size: 25px;
   font-weight: 500;
   margin-bottom: 1em;
+}
+
+.collectionDelete {
+  margin-left: auto;
+  display: none;
+}
+
+.collectionItem:hover .collectionDelete {
+  display: block;
 }

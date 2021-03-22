@@ -1,0 +1,26 @@
+.mainPage {
+  width: 100%;
+  min-width: 500px;
+  height: 100%;
+  min-height: 400px;
+  background: #4f4f4f;
+  margin: 0;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  text-decoration: none;
+  color: white;
+  border: 1px solid white;
+  border-radius: 1em;
+  padding: 0.5em 1em;
+  margin-top: 1em;
+}
+
+.pHere {
+  font-size: 40px;
+}

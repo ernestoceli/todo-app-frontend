@@ -1,10 +1,10 @@
 .taskListContainer {
   /* display: flex; */
   /* flex-direction: column; */
-  margin-left: 5em;
+  /* margin-left: 5em; */
   width: 62vw;
   overflow-y: scroll;
-  height: 80vh;
+  height: 69vh;
   /* border-style: solid;
   border-width: 1px; */
 }
@@ -59,4 +59,16 @@
 .addNew:hover {
   background: #bdbdbd;
   color: #4f4f4f;
+}
+
+.allThingsButTheButton {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5em;
+}
+
+.taskPlaceholder {
+  margin-top: 2em;
+  margin-left: 2em;
+  padding-top: 1em;
 }

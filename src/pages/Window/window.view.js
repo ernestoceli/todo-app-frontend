@@ -5,11 +5,12 @@ import TaskList from '../../components/TaskList/tasklist.view';
 import Modal from '../../components/Modal/modal.view';
 import styles from './window.module.css';
 
-const Window = () => {
+const Window = ({ userName }) => {
   const [openModal, setOpenModal] = useState(false);
   const [modalType, setModalType] = useState();
   const [collections, setCollections] = useState([]);
   const [selectedCollection, setSelectedCollection] = useState();
+  const [trigger, setTrigger] = useState(false);
 
   useEffect(() => {
     if (collections) {
@@ -17,10 +18,38 @@ const Window = () => {
         .then((res) => res.json())
         .then((data) => {
           setCollections(data);
-          // setSelectedCollection(data[0]);
+          setSelectedCollection(data[0]);
+        });
+    }
+  }, [trigger]);
+
+  useEffect(() => {
+    if (collections) {
+      fetch('http://localhost:3001/collection')
+        .then((res) => res.json())
+        .then((data) => {
+          setCollections(data);
         });
     }
   }, [openModal]);
+
+  const handleCollectionDelete = (id) => {
+    fetch(`http://localhost:3001/collection/${id}`, { method: 'DELETE' })
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error));
+
+    fetch('http://localhost:3001/task', {
+      method: 'DELETE',
+      headers: new Headers({ Accept: 'apllication/json', 'Content-type': 'application/json' }),
+      mode: 'cors',
+      body: JSON.stringify({ parentCollection: id }),
+    })
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error));
+
+    setTrigger(!trigger);
+    setSelectedCollection(collections[0]);
+  };
 
   return (
     <div className={styles.main}>
@@ -30,6 +59,7 @@ const Window = () => {
           modalType={modalType}
           handleCloseModal={() => setOpenModal(false)}
           collectionId={selectedCollection._id}
+          userName={userName}
         />
       )}
       <NavBar
@@ -37,6 +67,7 @@ const Window = () => {
           setModalType('profile');
           setOpenModal(true);
         }}
+        userName={userName}
       />
       <div className={styles.row}>
         <SideBar
@@ -47,6 +78,7 @@ const Window = () => {
           onClickCollection={(collection) => setSelectedCollection(collection)}
           collections={collections}
           selectedCollection={selectedCollection}
+          deleteClicked={handleCollectionDelete}
         />
         <TaskList
           triggerRefresh={openModal}

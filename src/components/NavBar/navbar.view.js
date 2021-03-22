@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import styles from './navbar.module.css';
 
-const NavBar = ({ profileClicked }) => (
+const NavBar = ({ profileClicked, userName }) => (
   <div className={styles.navBarBody}>
     <Link to="/" className={styles.navigationButton}>
       <span>
@@ -24,9 +24,9 @@ const NavBar = ({ profileClicked }) => (
 
     <Dropdown as={ButtonGroup}>
       <Dropdown.Toggle className={styles.menuButton}>
-        Ernesto{' '}
+        {userName}{' '}
         <span>
-          <div className={styles.userIcon}>E</div>
+          <div className={styles.userIcon}>{userName.charAt(0)}</div>
         </span>
         <span>
           <FontAwesomeIcon icon="ellipsis-v" size="xs" className={styles.ellipsis} />

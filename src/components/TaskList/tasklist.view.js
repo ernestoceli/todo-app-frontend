@@ -97,49 +97,51 @@ const TaskList = ({ newTaskClicked, triggerRefresh, fromCollection }) => {
     <>
       {fromCollection && (
         <>
-          <div className={styles.taskListContainer}>
-            <h3 className={styles.taskListTitle}>{fromCollection.name}</h3>
-            <div className={styles.taskListHeader}>
-              <li className={styles.floatLeft}>Pending</li>
-              <li className={styles.floatRight}>
-                {pendingTasksArray ? `${pendingTasksArray.length} ` : 'loading'}
-                tasks
-              </li>
+          <div className={styles.allThingsButTheButton}>
+            <p className={styles.taskListTitle}>{fromCollection.name}</p>
+            <div className={styles.taskListContainer}>
+              <div className={styles.taskListHeader}>
+                <li className={styles.floatLeft}>Pending</li>
+                <li className={styles.floatRight}>
+                  {pendingTasksArray ? `${pendingTasksArray.length} ` : 'loading'}
+                  tasks
+                </li>
+              </div>
+              {pendingTasksArray && pendingTasksArray.length > 0 ? (
+                pendingTasksArray.map((task) => (
+                  <Task
+                    taskClicked={(id) => {
+                      handleTaskClicked(id);
+                      setTaskChangeStatus(!taskChangeStatus);
+                    }}
+                    taskInfo={task}
+                  />
+                ))
+              ) : (
+                <p className={styles.taskPlaceholder}>No pending tasks</p>
+              )}
+              <div className={styles.taskListHeader}>
+                <li className={styles.floatLeft}>Completed</li>
+                <li className={styles.floatRight}>
+                  {completedTasksArray ? `${completedTasksArray.length} ` : 'loading'}
+                  tasks
+                </li>
+              </div>
+              {completedTasksArray && completedTasksArray.length > 0 ? (
+                completedTasksArray.map((task) => (
+                  <Task
+                    taskClicked={(id) => {
+                      handleTaskClicked(id);
+                      setTaskChangeStatus(!taskChangeStatus);
+                    }}
+                    taskInfo={task}
+                    deleteTask={handleTaskDelete}
+                  />
+                ))
+              ) : (
+                <p className={styles.taskPlaceholder}>No completed tasks</p>
+              )}
             </div>
-            {pendingTasksArray && pendingTasksArray.length > 0 ? (
-              pendingTasksArray.map((task) => (
-                <Task
-                  taskClicked={(id) => {
-                    handleTaskClicked(id);
-                    setTaskChangeStatus(!taskChangeStatus);
-                  }}
-                  taskInfo={task}
-                />
-              ))
-            ) : (
-              <p>No pending tasks</p>
-            )}
-            <div className={styles.taskListHeader}>
-              <li className={styles.floatLeft}>Completed</li>
-              <li className={styles.floatRight}>
-                {completedTasksArray ? `${completedTasksArray.length} ` : 'loading'}
-                tasks
-              </li>
-            </div>
-            {completedTasksArray && completedTasksArray.length > 0 ? (
-              completedTasksArray.map((task) => (
-                <Task
-                  taskClicked={(id) => {
-                    handleTaskClicked(id);
-                    setTaskChangeStatus(!taskChangeStatus);
-                  }}
-                  taskInfo={task}
-                  deleteTask={handleTaskDelete}
-                />
-              ))
-            ) : (
-              <p>No completed tasks</p>
-            )}
           </div>
           <button type="button" className={styles.addNew} onClick={newTaskClicked}>
             + Add task

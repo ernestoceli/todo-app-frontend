@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './modal.module.css';
 
 // eslint-disable-next-line
-const Modal = ({ open, handleCloseModal, modalType, collectionId }) => {
+const Modal = ({ open, handleCloseModal, modalType, collectionId, userName }) => {
   const [descriptionInput, setDescriptionInput] = useState();
   const [iconInput, setIconInput] = useState('coffee');
   const [colorInput, setColorInput] = useState('#000000');
@@ -42,10 +42,17 @@ const Modal = ({ open, handleCloseModal, modalType, collectionId }) => {
     return modalType === 'profile' ? (
       <div className={styles.overlay}>
         <div className={styles.modalBody}>
-          <p className={styles.p}>Profile Modal</p>
-          <button type="button" onClick={handleCloseModal}>
-            Close
-          </button>
+          <div className={styles.profileDiv}>
+            <div className={styles.userIcon}>{userName.charAt(0)}</div>
+            <p className={styles.profileTitle}>{`${userName}'s profile`}</p>
+            <button
+              type="button"
+              onClick={handleCloseModal}
+              className={`${styles.button} ${styles.cancel}`}
+            >
+              Close
+            </button>
+          </div>
         </div>
       </div>
     ) : (

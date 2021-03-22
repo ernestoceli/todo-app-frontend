@@ -1,3 +1,13 @@
 .userform {
   z-index: 10;
 }
+
+.button {
+  background: 0;
+  text-decoration: none;
+  color: white;
+  border: 1px solid white;
+  border-radius: 1em;
+  padding: 0.5em 1em;
+  margin-top: 1em;
+}

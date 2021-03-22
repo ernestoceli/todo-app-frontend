@@ -12,7 +12,7 @@
 
 .collectionFlex {
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   flex-wrap: wrap;
   list-style: none;
   margin: 15vh 5vw;
@@ -20,15 +20,40 @@
 
 .collectionElement {
   background: grey;
-  width: 10vw;
+  width: 15vw;
   height: 10vw;
   border-radius: 1vw;
   text-align: center;
   margin: 10px;
   cursor: pointer;
   outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  border: 0;
+  color: white;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
 }
 
 .collectionElement:hover {
   background: rgb(68, 68, 68);
+}
+
+.iconContainer {
+  width: 2.2em;
+  height: 2.2em;
+  border-radius: 0.5em;
+  /* border-style: solid;
+  border-width: 0.05em; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.8em;
+}
+
+.addIcon {
+  background: crimson;
+  margin: 0;
 }
